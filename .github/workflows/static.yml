@@ -20,16 +20,21 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
+      - name: Install Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/download/v2.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+
       - name: Build with Docker
         run: |
           docker-compose build
           docker-compose up -d
-          sleep 10  # Даем время контейнерам запуститься
+          sleep 10
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./client/dist  # Путь к собранному фронтенду
+          path: ./client/dist
 
   deploy:
     environment:

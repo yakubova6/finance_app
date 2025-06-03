@@ -1,11 +1,21 @@
-FROM node:18
+FROM node:20
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+# Установите зависимости для drizzle-kit
+RUN apt-get update && apt-get install -y openssl
 
+# Копируем только зависимости для кэширования
+COPY package*.json ./
+
+# Устанавливаем ВСЕ зависимости (включая devDependencies)
+RUN npm install --include=dev
+
+# Копируем исходный код
 COPY . .
 
-EXPOSE 5000
-CMD ["node", "index.js"]
+# Собираем проект
+RUN npm run build
+
+# Запускаем приложение
+CMD ["npm", "start"]
