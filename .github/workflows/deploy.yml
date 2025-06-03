@@ -23,9 +23,7 @@ jobs:
           
       - name: Run migrations
         run: |
-          # Убеждаемся что БД готова
           docker exec ecofinance_postgres pg_isready -U admin
-          # Выполняем миграции
           docker exec ecofinance_backend npm run migrate
           
       - name: Deploy to GitHub Pages
