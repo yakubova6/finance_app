@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Design System */
+:root {
+  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --gradient-secondary: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  --gradient-success: linear-gradient(135deg, #059669 0%, #047857 100%);
+  --gradient-dark: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+  --border-radius: 12px;
+}
+
+body {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Улучшение читаемости текста */
+.text-gray-500 {
+  color: #6b7280; /* Более темный серый */
+}
+
+.text-gray-600 {
+  color: #4b5563; /* Еще темнее */
+}
+
+.text-gray-700 {
+  color: #374151; /* Значительно темнее */
+}
+
+.font-medium {
+  font-weight: 500; /* Средняя жирность */
+}
+
+/* Premium cards */
+.premium-card {
+  @apply bg-white border border-slate-100 rounded-[var(--border-radius)];
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.premium-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border-color: #e2e8f0;
+}
+
+/* Premium buttons */
+.premium-button {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  @apply text-white font-medium py-2.5 px-5 rounded-[var(--border-radius)] border-0 shadow-md transition-all duration-300;
+  box-shadow: var(--shadow-soft);
+}
+
+.premium-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  @apply text-white font-medium py-2.5 px-5 rounded-[var(--border-radius)] transition-all duration-300 border-0;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+}
+
+.btn-danger {
+  @apply bg-gradient-to-r from-rose-600 to-rose-700 text-white font-medium px-5 py-2.5 rounded-[var(--border-radius)] shadow-md hover:shadow-lg transition-all duration-200;
+}
+
+/* Inputs and selects */
+.input-premium {
+  @apply bg-white border border-slate-200 text-slate-800 placeholder-slate-500 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 rounded-[var(--border-radius)];
+}
+
+/* Select components */
+.select-content {
+  @apply bg-white border border-slate-200 rounded-[var(--border-radius)] shadow-lg;
+}
+
+.select-item {
+  @apply rounded-[10px];
+}
+
+/* Badges */
+.badge {
+  @apply rounded-[10px];
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form elements */
+input, select, textarea {
+  @apply rounded-[var(--border-radius)];
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400;
+}
+
+/* Dialog overlay */
+[data-radix-dialog-content] {
+  @apply rounded-[var(--border-radius)] border border-slate-200 bg-white;
+}
+
+/* Text colors */
+.text-primary {
+  @apply text-slate-800;
+}
+
+.text-secondary {
+  @apply text-slate-600;
+}
+
+/* Увеличено закругление для всех кнопок */
+button, .btn {
+  @apply rounded-[var(--border-radius)] !important;
+}
+
+/* Увеличенные отступы в формах */
+.form-spacing {
+  @apply space-y-6;
+}
